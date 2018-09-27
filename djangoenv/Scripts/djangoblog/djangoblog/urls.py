@@ -21,4 +21,6 @@ import article
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('basic/', include('article.urls')),
+    path('', include('article.urls')),
+
 ]
