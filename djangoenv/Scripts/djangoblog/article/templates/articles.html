@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+
+{% block article %}
+    <div class ="large-6 cell">
+    {% for article in articles %}
+        <h5>Date: {{ article.article_date }}</h5>
+        <h4><a href = "/articles/get/{{ article.id }}">{{ article.article_title }}</a></h4>
+        <p>{{ article.article_text }}</p>
+        <p><img src = "{% static 'image.png' %}" width = 25 height = 25>{{ article.article_likes }}</p>
+        <hr>
+     </div>
+    {% endfor %}
+{% endblock %}
