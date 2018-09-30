@@ -17,5 +17,5 @@ class Comment(models.Model):
     class Meta:
         db_table = 'comments'
 
-    comments_text = models.TextField()
+    comments_text = models.TextField(verbose_name="Your comment")
     comments_article = models.ForeignKey(Article, on_delete='PROTECT')

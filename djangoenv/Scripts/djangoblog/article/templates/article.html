@@ -11,5 +11,10 @@
             <p>{{ comment.comments_text }}</p>
             <hr>
         {% endfor %}
+        <form action="/articles/addcomment/{{ article.id }}/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" class="button" value="Send">
+        </form>
     </div>
 {% endblock %}

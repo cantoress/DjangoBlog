@@ -7,7 +7,7 @@
         <h5>Date: {{ article.article_date }}</h5>
         <h4><a href = "/articles/get/{{ article.id }}">{{ article.article_title }}</a></h4>
         <p>{{ article.article_text }}</p>
-        <p><img src = "{% static 'image.png' %}" width = 25 height = 25>{{ article.article_likes }}</p>
+        <p><a href = "/articles/addlike/{{ article.id }}/"><img src = "{% static 'image.png' %}" width = 25 height = 25></a>{{ article.article_likes }}</p>
         <hr>
      </div>
     {% endfor %}
