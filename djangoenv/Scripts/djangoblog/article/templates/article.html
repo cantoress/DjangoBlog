@@ -9,12 +9,15 @@
         <p>Comments</p>
         {% for comment in comments %}
             <p>{{ comment.comments_text }}</p>
+            <p>{{ comment.comments_author.username }}   {{ comment.comments_date }}</p>
             <hr>
         {% endfor %}
+        {% if username %}
         <form action="/articles/addcomment/{{ article.id }}/" method="post">
             {% csrf_token %}
             {{ form }}
             <input type="submit" class="button" value="Send">
         </form>
+        {% endif %}
     </div>
 {% endblock %}

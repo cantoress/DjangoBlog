@@ -24,7 +24,8 @@ urlpatterns = [
     path(r'3/', views.useful),
     path(r'articles/all/', views.articles),
     re_path(r'articles/get/(?P<article_id>(\d+))/', views.article),
-    re_path(r'articles/addlike/(?P<article_id>(\d+))/', views.addlike),
+    re_path(r'articles/addlike/(?P<article_id>(\d+))/(?P<page_number>(\d+))/', views.addlike),
     re_path(r'articles/addcomment/(?P<article_id>(\d+))/', views.addcomment),
+    re_path(r'page/(\d+)/', views.articles),
     path(r'', views.articles),
 ]

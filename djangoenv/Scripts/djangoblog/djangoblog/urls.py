@@ -21,6 +21,7 @@ import article
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('basic/', include('article.urls')),
+    path('auth/', include('loginsys.urls')),
     path('', include('article.urls')),
 
 ]

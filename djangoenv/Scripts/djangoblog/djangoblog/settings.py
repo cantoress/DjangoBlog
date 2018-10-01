@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'article',
+    'loginsys',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             r'E:/BLOG/djangoenv/Scripts/djangoblog/templates',
-            r'E:/BLOG/djangoenv/Scripts/djangoblog/article/templates'
+            r'E:/BLOG/djangoenv/Scripts/djangoblog/loginsys/templates',
+            r'E:/BLOG/djangoenv/Scripts/djangoblog/article/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

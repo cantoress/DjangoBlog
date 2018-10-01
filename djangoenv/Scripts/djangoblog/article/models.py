@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -19,3 +20,5 @@ class Comment(models.Model):
 
     comments_text = models.TextField(verbose_name="Your comment")
     comments_article = models.ForeignKey(Article, on_delete='PROTECT')
+    comments_author = models.ForeignKey(User, on_delete='PROTECT', default=1)
+    comments_date = models.DateTimeField()

@@ -2,13 +2,38 @@
 {% load staticfiles %}
 
 {% block article %}
-    <div class ="large-6 cell">
+
     {% for article in articles %}
+    <div class ="large-6 cell">
         <h5>Date: {{ article.article_date }}</h5>
         <h4><a href = "/articles/get/{{ article.id }}">{{ article.article_title }}</a></h4>
         <p>{{ article.article_text }}</p>
-        <p><a href = "/articles/addlike/{{ article.id }}/"><img src = "{% static 'image.png' %}" width = 25 height = 25></a>{{ article.article_likes }}</p>
+        <p><a href = "/articles/addlike/{{ article.id }}/{{ articles.number }}"><img src = "{% static 'image.png' %}" width = 25 height = 25></a>{{ article.article_likes }}</p>
         <hr>
      </div>
     {% endfor %}
+
+    <div class="row">
+        <nav aria-label="Pagination">
+            <ul class="pagination text-center">
+                {% if articles.has_previous %}
+                    <li class="pagination-previous"><a href="/page/{{ articles.previous_page_number }}/">Previous</a></li>
+                {% else %}
+                    <li class="pagination-previous disabled">Previous</li>
+                {% endif %}
+                {% for page in articles.paginator.page_range %}
+                    {% if page == articles.number %}
+                        <li class="current"><a href="/page/{{ page }}/">{{ page }}</a></li>
+                    {% else %}
+                        <li><a href="/page/{{ page }}/">{{ page }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if articles.has_next %}
+                    <li class="pagination-next"><a href="/page/{{ articles.next_page_number }}/">Next</a></li>
+                {% else %}
+                    <li class="pagination-next disabled">Next</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
 {% endblock %}

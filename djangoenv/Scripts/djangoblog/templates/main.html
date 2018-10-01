@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,9 +8,23 @@
     <link rel = "stylesheet" type = "text/css" href="{% static 'static/css/foundation.css'%}">
 </head>
 <body>
-    <h1><a href = "/">My blog</a></h1>
-    <div class = "grid-container">
-        {% block article %}{% endblock %}
+<div class="top-bar">
+    <div class="top-bar-right">
+        <ul class="menu">
+            {% if username %}
+                <li><a href="/auth/logout/">Wanna leave, {{ username }}?</a></li>
+            {% else %}
+                <li><a href="/auth/login/">Log in</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+    <div>
+    <h1 style="padding-left:20px;"><a href = "/">My blog</a></h1>
+        <div class = "grid-container">
+            {% block article %}{% endblock %}
+            {% block login %}{% endblock %}
+        </div>
     </div>
 </body>
 </html>
