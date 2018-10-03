@@ -128,3 +128,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     ('static', 'E:/BLOG/djangoenv/Scripts/djangoblog/static'),
 ]
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+

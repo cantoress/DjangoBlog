@@ -30,7 +30,7 @@ def useful(request):
 
 
 def articles(request, page_number=1):
-    all_articles = Article.objects.all()
+    all_articles = Article.objects.order_by('-article_date')
     current_page = Paginator(all_articles, 3)
     return render_to_response('articles.html', {'articles': current_page.page(page_number), 'username': auth.get_user(request).username})
 
@@ -43,6 +43,7 @@ def article(request, article_id=1):
     args['comments'] = Comment.objects.filter(comments_article_id=article_id)
     args['form'] = comment_form
     args['username'] = auth.get_user(request).username
+    args['images'] = args['article'].article_image
     return render(request, 'article.html', args)
 
 
